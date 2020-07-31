@@ -1,39 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-
-    <title>Muscle Car Challenge</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="./Assets/style.css"> 
+  <title>Muscle Car Challenge</title>
 </head>
+
 <body>
 
-    <!-- Bootstrap format to pull the quiz-->
-    <div class="card" style="width: 18rem;">
-                <div class="card-body">
-          <h5 class="card-title">Muscle Car Quiz</h5>
-          <p class="card-text">It's time to test your muscle car knowledge. Answer as many questions as you can in 90 seconds. Be warned: you'll be penalized for every question you get wrong! Click Start to begin. </p>
-        </div>
-        
-        <!-- this is where the choices will be-->
-        <ul id="choices"></ul>
-         
-        <div class="card-body">
-            <!-- buttons-->
-          <button id="start">Start</button>
-          <button id="high scores">High Scores</button>
-        </div>
-      </div>
-<!-- 60 seconds timer-->
-      <div>
-        <p id="timer"></p>
-      </div>
-      <!--running the javascript associated with the quiz-->
-      <script src="./Assets/javascript.js"></script>
+  <!-- Bootstrap format to pull the quiz-->
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Muscle Car Quiz</h5>
+      <p class="card-text" id="instructions">It's time to test your muscle car knowledge. Answer as many questions as you can in 90
+        seconds. Be warned: you'll be penalized for every question you get wrong! Click Start to begin. </p>
+    </div>
+
+    <!-- this is where the choices will be-->
+
+    <!-- need to set this display to none-->
+    <div class="card-body hide" id="question">Question
+      <div id="questionBox">This is where the question will go</div>
+      <!-- buttons for the multiple choice-->
+      <ul class="card-body" id="choices">
+        <li><button>Choice 1</button></li><br>
+        <li><button>Choice 2</button></li><br>
+        <li><button>Choice 3</button></li><br>
+        <li><button>Choice 4</button></li><br>
+      </ul>
+
+    </div>
 
 
-    
+
+    <div class="card-body" id="score"></div>
+
+    <div class="card-body" id="buttonStorage">
+      <!-- buttons-->
+      <button id="start">Start</button>
+      <button id="high scores">High Scores</button>
+    </div>
+  </div>
+  <!-- 90 seconds timer-->
+  <div>
+    <p id="timer"></p>
+  </div>
+  <!--running the javascript associated with the quiz-->
+  <script src="./Assets/javascript.js"></script>
+
+
+
 </body>
+
 </html>
