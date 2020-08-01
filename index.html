@@ -22,20 +22,19 @@
 
     <!-- this is where the choices will be-->
 
-    <!-- need to set this display to none-->
-    <div class="card-body hide" id="question">Question
+       <div class="card-body hide" id="question">Question
       <div id="questionBox">This is where the question will go</div>
       <!-- buttons for the multiple choice-->
       <ul class="card-body" id="choices">
-        <li><button>Choice 1</button></li><br>
-        <li><button>Choice 2</button></li><br>
-        <li><button>Choice 3</button></li><br>
-        <li><button>Choice 4</button></li><br>
+        <li><button id="choice_1">Choice 1</button></li><br>
+        <li><button id="choice_2">Choice 2</button></li><br>
+        <li><button id="choice_3">Choice 3</button></li><br>
+        <li><button id="choice_4">Choice 4</button></li><br>
       </ul>
 
     </div>
 
-
+    <div ><p id="respondance"></p></div>
 
     <div class="card-body" id="score"></div>
 
@@ -49,6 +48,8 @@
   <div>
     <p id="timer"></p>
   </div>
+  <!-- div where the final score will show-->>
+  <div id="final_Score"></div>
   <!--running the javascript associated with the quiz-->
   <script src="./Assets/javascript.js"></script>
 

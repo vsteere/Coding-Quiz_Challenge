@@ -1,164 +1,196 @@
 //starting array listing the questions, possible answers and correct answers
 
-var quizQuestions = [
+var quizContents = [
     {
-    q: "Which company was not creating cars in the 1960s?",
-    a: [
-        {text: "Ford", correct: false}, 
-        {text: "GM", correct: false}, 
-        {text:"MOPAR", correct: false}, 
-        {text:"Tesla", correct: true}
-    ]
+    "question": "Which company was not creating cars in the 1960s?",
+   
+        "a" : "1. Ford",
+        "b" : "2. GM",
+        "c" : "3. MOPAR",
+        "d" : "4. Tesla",
+        "correct" : "4. Tesla",
+       
+    
      
     },
 
     {
-    q: "What does GTO stand for in Pontiac's muscle car name?",
-    a: [
-        {text: "Grand Tourismo Obligato", correct: true}, 
-        {text: "Gonna Try Over", correct: false},
-        {text: "Grind Toward Oblivion", correct: false},
-        {text: "Gator Tour Ovation", correct: false}
-    ]   
+    "question" : "What does GTO stand for in Pontiac's muscle car name?",
+        "a" : "1. Grand Tourismo Obligato",
+        "b" : "2. Gonna Try Over",
+        "c" : "3. Grind Toward Oblivion",
+        "d" : "4. Gator Tour OVation",
+        "correct" : "1. Grand Tourismo Obligato",
+   
 
 },
 
     {
-        q: "What brand was not included under the MOPAR umbrella?",
-        a: [
-            {text: "Dodge", correct: false},
-            {text: "Chrysler", correct: false},
-            {text: "Fiat", correct: true},
-            {text: "Plymouth", correct: false}
-        
-        ]
-        
+        "question": "What brand was not included under the MOPAR umbrella?",
+        "a" : "1. Dodge",
+        "b" : "2. Chrysler",
+        "c" : "3. Fiat",
+        "d" : "4. Plymouth",
+        "correct" : "3. Fiat",
+          
     },
 
     {
-        q: "what CID was the 6.2L Hemi motor produced by Dodge?",
-        a: [
-            {text: "426", correct: true},
-            {text: "440", correct: false}, 
-            {text: "454", correct: false}, 
-            {text: "328", correct: false}
-        ]
-        
+        "question" : "what CID was the 6.2L Hemi motor produced by Dodge?",
+        "a" : "1. 426",
+        "b" : "2. 440",
+        "c" : "3. 454",
+        "d" : "4. 328",
+        "correct" : "1. 426",
+             
    },
 
    { 
-        q: "What body style was the 1966/67 Doge Charger?",
-        a: [
-            {text: "b body", correct: true}, 
-            {text: "a body", correct: false},
-            {text: "c body", correct: false},
-            {text: "x body", correct: false}
-        ]
-       
+        "question": "What body style was the 1966/67 Doge Charger?",
+        "a" : "1. b body",
+        "b" : "2. a body",
+        "c" : "3. c body",
+        "d" : "4. x body",
+        "correct" : "1. b body",
+        
    },
 
    {
-    q: "Ford Mustang came out in what year?",
-    a: [
-        {text: "1964 1/2",  correct: true},
-        {text: "1965", correct: false},
-        {text: "1967", correct: false},
-        {text: "1970", correct: false}
-    
-    ],
-    
+    "question" : "Ford Mustang came out in what year?",
+    "a" : "1. 1964 1/2",
+    "b" : "2. 1965",
+    "c" : "3. 1967",
+    "d" : "4. 1970",
+    "correct" : "1. 1964 1/2",
+       
    }
 ];
 
 
 
-//90 seconds timer that starts once the start button is clicked
+//timer box
 var timerPlace = document.querySelector("#timer");
+//number of seconds to start
 var timeRemaining = 90;
-//variables for the quiz
+//main quiz container
+var mainBox = document.querySelector("#question");
+//score box 
+var score = document.querySelector("#score");
+//answer box
+var answerBox = document.querySelector("#respondance");
+//question box
+var qBox = document.querySelector("#questionBox");
+//button box
+var bBox = document.querySelector("#buttonStorage")
+//choices
+var choice1 = document.querySelector("#choice_1");
+var choice2 = document.querySelector("#choice_2");
+var choice3 = document.querySelector("#choice_3");
+var choice4 = document.querySelector("#choice_4");
+var correctChoice = document.querySelector("#choice_1");
+//box where the final score will show
+var fScore = document.querySelector("#final_Score");
 
-//variable for the button container
-var bBox = document.querySelector("#buttonStorage");
-//variable for the container that contains the question and the choices
-var qBox = document.querySelector("#question");
-//variable for the container where the questions will be shown
-var quizBox = document.querySelector("#questionBox");
-//variable for the container where the choices will be shown
-var answerBox = document.querySelector("#choices");
+//beginning score
+var startingScore = 0;
+//variable to cycle through question array
+var questionIndex = 0;
+
+
+//resets score when quiz restarts
+function Reset(){
+    startScore = 0;
+    questionIndex = 0;
+
+}
+//90 seconds timer that starts once the start button is clicked
 document.querySelector("#start").addEventListener("click", timer);
 
+
+
+
+//timer function 
 function timer() {
     var timerInterval = setInterval(function() {
         timeRemaining--;
         timerPlace.textContent = timeRemaining + " seconds remaining in the quiz";
 
-        if(timeRemaining === 0) {
-            clearInterval(timerInterval);
-
-        }
-
+        
 
     }, 1000);
 
     bBox.classList.add("hide");
-    qBox.classList.remove("hide");
-
-    startQuestions()
-    
+    mainBox.classList.remove("hide"); 
 
 
 };
 
+//function to run the questions and answer from the array
+function appearQuestions() {
+    var q = quizContents[questionIndex];
 
-
-
-
-
-
-var score = 0;
-
-// for (var i=0; i <quizQuestions.length; i++){
-//     var quizResponse=document.querySelector("#choices").textContent(quizQuestions[i].q)
-//         if(response == quizQuestions[i].c){
-//             score++;
-//         }
-
-//         else {
-//             timeRemaining - 10;
-
-//         }
-// }
-
-
-//function to show the first question
-function startQuestions() {
-    showQuestion(quizQuestions[0])
-}
-
-
-
-
-function showQuestion(q) {
-    quizBox.innerText = q.q
-    quizQuestions.a.forEach(answer => {
-        const button = document.createElement("button")
-        button.innerText = a.text
-        if (a.correct) {
-            score++
-        }
-
-
-
-
-    })
-
+    qBox.innerHTML = q.question;
+    choice1.innerHTML = q.a;
+    choice1.setAttribute("data-answer", q.a);
+    choice2.innerHTML = q.b;
+    choice2.setAttribute("data-answer", q.b);
+    choice3.innerHTML = q.c;
+    choice3.setAttribute("data-answer", q.c);
+    choice4.innerHTML = q.d;
+    choice4.setAttribute("data-answer", q.d);
 
 }
 
+appearQuestions();
+choice1.addEventListener("click", function (event) {
+    checkAnswer(event);
+})
+choice2.addEventListener("click", function (event) {
+    checkAnswer(event);
+})
+choice3.addEventListener("click", function (event) {
+    checkAnswer(event);
+})
+choice4.addEventListener("click", function (event) {
+    checkAnswer(event);
+})
 
 
-//function to select which answer is correct
-function selectAnswer() {
+//checking if event is right
+function checkAnswer(event) {
+    event.preventDefault();
 
+    var answer = event.currentTarget.dataset.answer;
+    var rightAnswer = null;
 
-} 
+    if (quizContents[questionIndex].correct === answer) {
+        rightAnswer = answer; 
+
+    }
+    //messages that will appear if right/wrong
+    if (answer === rightAnswer) {
+        answerBox.textContent = "You are Correct!!";
+    } 
+//time deduction for wrong answer; if less than 10 seconds remains, set timer to 0
+
+    else {
+        answerBox.textContent = "Incorrect! Not Right! Not at All!";
+        timeRemaining -= 10
+            if (timeRemaining < 0) {
+                timeRemaining = 0;
+            }
+            
+    }
+    if(quizContents.length === questionIndex+1){
+        finalScore(); // this will show score if user went through all questionos
+        return; //goes on to the next question if not all questions answered
+    }
+    questionIndex++;
+    appearQuestions();
+    
+}
+//displays final score in the appropriate box
+function finalScore () {
+    fScore.textContent = "The final score was " + timeRemaining;
+
+}
