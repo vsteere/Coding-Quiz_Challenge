@@ -81,7 +81,8 @@ var answerBox = document.querySelector("#respondance");
 //question box
 var qBox = document.querySelector("#questionBox");
 //button box
-var bBox = document.querySelector("#buttonStorage")
+var bBox = document.querySelector("#buttonStorage");
+var Instructions = document.querySelector("#instructions");
 //choices
 var choice1 = document.querySelector("#choice_1");
 var choice2 = document.querySelector("#choice_2");
@@ -125,7 +126,7 @@ function timer() {
 
     bBox.classList.add("hide");
     mainBox.classList.remove("hide"); 
-
+    Instructions.classList.add("hide");
 
 };
 
