@@ -1,3 +1,8 @@
 .hide {
     display:none;
 }
+#final_score {
+    font-size: larger;
+    border: solid;
+    border-color: blue;
+}

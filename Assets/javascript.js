@@ -71,7 +71,7 @@ var quizContents = [
 //timer box
 var timerPlace = document.querySelector("#timer");
 //number of seconds to start
-var timeRemaining = 90;
+var timeRemaining = 45;
 //main quiz container
 var mainBox = document.querySelector("#question");
 //score box 
@@ -114,7 +114,11 @@ function timer() {
     var timerInterval = setInterval(function() {
         timeRemaining--;
         timerPlace.textContent = timeRemaining + " seconds remaining in the quiz";
+        if(timeRemaining === 0 || quizContents.length === questionIndex) {
+            clearInterval(timerInterval);
+            finalScore();
 
+        }
         
 
     }, 1000);
@@ -193,4 +197,4 @@ function checkAnswer(event) {
 function finalScore () {
     fScore.textContent = "The final score was " + timeRemaining;
 
-}
+};
